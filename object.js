@@ -2,7 +2,7 @@
 const item = new Object();
 
 //good
-
+const item = {};
 
 //bad 
 const test = 'test';
@@ -12,7 +12,9 @@ const obj = {
 }
 
 //good
-
+const obj = {
+    test,
+}
 
 //bad copy
 const person = {
@@ -28,7 +30,13 @@ for(key in person){
 }
 
 //good
+const person = {
+    name: 'person',
+    age: 20,
+    lastName: 'lastname'
+}
 
+let newObj = {...person};
 
 
 // bad 
@@ -39,13 +47,17 @@ const bad = {
 };
 
 //good
-
+const bad = {
+    foo: 3,
+    bar: 4,
+    'data-blah': 5,
+};
 
 // bad
 const items = new Array();
 
 // good
-
+const items = [];
 
 //bad 
 const list = [];
@@ -53,6 +65,9 @@ const list = [];
 list[0] = 'add new element to list';
 
 //good
+const list = [];
+
+list.push('new element');
 
 
 //bad copy
@@ -65,7 +80,7 @@ for (i = 0; i < len; i += 1) {
 }
 
 //good
-
+const itemsCopy = [...items]
 
 
 //destructurin obj
@@ -78,7 +93,9 @@ function getFullName(user) {
 }
 
 //good
-
+function getFullName({ firstName, lastName }) {
+    return `${firstName} ${lastName}`;
+  }
 
 //destructurin array
 const arr = [1, 2, 3, 4];
@@ -88,3 +105,4 @@ const first = arr[0];
 const second = arr[1];
 
 //good
+const [first, second] = arr;
